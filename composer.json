@@ -1,7 +1,7 @@
 {
-  "name": "nicpon/nicman-seafile-php-sdk",
+  "name": "nicmanlabs/seafile-php-sdk",
   "description": "This is a PHP package for accessing Seafile Web API",
-  "homepage": "https://github.com/nicpon/Nicman-Seafile-PHP-SDK",
+  "homepage": "https://github.com/nicmanlabs/Seafile-PHP-SDK",
   "license": "MIT",
   "authors": [
     {
