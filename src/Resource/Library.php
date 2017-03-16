@@ -189,4 +189,26 @@ class Library extends Resource
 
         return $response->getStatusCode() === 200;
     }
+
+    /**
+     * Get a libarary history
+     *
+     * @param $libraryId
+     *
+     * @return static
+     */
+    public function getHistory($libraryId)
+    {
+        {
+            $response = $this->client->request(
+                'GET',
+                $this->client->getConfig('base_uri') . '/repos/' . $libraryId . '/history'
+            );
+
+            $json = json_decode($response->getBody());
+
+            return (new LibraryType)->fromJson($json);
+        }
+
+    }
 }
