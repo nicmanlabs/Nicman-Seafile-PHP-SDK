@@ -61,6 +61,11 @@ class DirectoryItem extends Type
     public $type = "";
 
     /**
+     * @var string
+     */
+    public $parent_dir = "";
+
+    /**
      * Populate from array
      *
      * @param array $fromArray Create from array
