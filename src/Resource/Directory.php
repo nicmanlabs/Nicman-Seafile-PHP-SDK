@@ -17,14 +17,15 @@ use \Seafile\Client\Type\DirectoryItem;
 class Directory extends Resource
 {
     /**
-     * Get all items of a directory in a library
      *
+     * Get all items of a directory in a library
      * @param LibraryType $library Library type
      * @param string      $dir     Directory path
-     *
-     * @return DirectoryItem[]
+     * @param string      $type    Resource type f for file and d for directory
+     * @param string      $recursive If set t argument as d AND recursive argument as 1, return all dir entries recursively
+     * @return array
      */
-    public function getAll(LibraryType $library, $dir = '/')
+    public function getAll(LibraryType $library, $dir = '/', $type = 'd', $recursive = '0')
     {
         $clippedBaseUri = $this->clipUri($this->client->getConfig('base_uri'));
 
@@ -32,7 +33,10 @@ class Directory extends Resource
             'GET',
             $clippedBaseUri . '/repos/' . $library->id . '/dir/',
             [
-                'query' => ['p' => $dir],
+                'query' => ['p' => $dir,
+                    't' => $type,
+                    'recursive' => $recursive
+                ],
             ]
         );
 
